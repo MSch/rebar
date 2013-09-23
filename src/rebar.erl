@@ -160,7 +160,7 @@ init_config1(BaseConfig) ->
 
 run_aux(BaseConfig, Commands) ->
     %% Make sure crypto is running
-    case crypto:start() of
+    case application:start(crypto) of
         ok -> ok;
         {error,{already_started,crypto}} -> ok
     end,
